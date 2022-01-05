@@ -16,6 +16,10 @@ namespace ProEventos.Persistence
         {
             _context.Add(entity);
         }
+        public void Update<T>(T entity) where T : class
+        {
+           _context.Update(entity);
+        }
 
         public void Delete<T>(T entity) where T : class
         {
@@ -32,9 +36,5 @@ namespace ProEventos.Persistence
             return (await _context.SaveChangesAsync()) > 0;
         }
 
-        public void Update<T>(T entity) where T : class
-        {
-           _context.Update(entity);
-        }
     }
 }
